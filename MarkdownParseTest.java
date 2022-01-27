@@ -16,10 +16,13 @@ public class MarkdownParseTest {
     }
 
     @Test
-    public void parseTest() {
-        Path fileName = Path.of(args[0]);
+    public void parseTest() throws IOException {
+        Path fileName = Path.of("test-file.md");
 	    String contents = Files.readString(fileName);
-        ArrayList<String> links = getLinks(contents);
-        System.out.println(links);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://something.com");
+        expected.add("some-page.html");
+        assertEquals(expected, links);
     }
 }
