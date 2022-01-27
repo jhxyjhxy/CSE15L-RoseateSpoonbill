@@ -31,13 +31,11 @@ public class MarkdownParse {
                      break;
                  }
            
-            if (nextCloseBracket + 1 != openParen)
+            if (nextCloseBracket + 1 == openParen && 
+                markdown.indexOf("!") != nextOpenBracket - 1)
             {
-                break;
-            }
-           if (markdown.indexOf("!") != nextOpenBracket - 1){
                toReturn.add(markdown.substring(openParen + 1, closeParen));
-           }
+            }
 
             currentIndex = closeParen + 1;
         }
