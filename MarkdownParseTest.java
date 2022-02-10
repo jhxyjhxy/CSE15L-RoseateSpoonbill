@@ -103,5 +103,6 @@ public class MarkdownParseTest {
     @Test
     public void parseTest10() throws IOException {
         assertEquals(0, 0);
+        fail();
     }
 }
